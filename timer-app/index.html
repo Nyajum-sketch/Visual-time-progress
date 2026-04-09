@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progress Timer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Input Section (hidden after start) -->
+  <div id="inputSection" class="input-section">
+    <div class="input-container">
+      <h1>Alarm Progress</h1>
+      
+      <div class="form-group">
+        <label for="dateInput">Alarm date</label>
+        <input id="dateInput" type="date">
+      </div>
+
+      <div class="form-group">
+        <label>Alarm time</label>
+        <div class="input-row time-row">
+          <input
+            id="hourInput"
+            type="number"
+            min="1"
+            max="12"
+            value="12"
+            aria-label="Hour"
+          >
+          <input
+            id="minuteInput"
+            type="number"
+            min="0"
+            max="59"
+            value="00"
+            aria-label="Minute"
+          >
+          <select id="periodSelect" aria-label="AM or PM">
+            <option value="AM">AM</option>
+            <option value="PM">PM</option>
+          </select>
+        </div>
+        <small>Select a future date and 12-hour time</small>
+      </div>
+
+      <button id="startBtn" class="start-btn">Start</button>
+      <p id="errorMsg" class="error-msg"></p>
+    </div>
+  </div>
+
+  <!-- Progress Bar Section (only visible during/after progress) -->
+  <div id="progressSection" class="progress-section hidden">
+    <div
+      id="progressBar"
+      class="progress-bar"
+      role="progressbar"
+      aria-valuenow="100"
+      aria-valuemin="0"
+      aria-valuemax="100"
+    >
+      <div id="progressFill" class="progress-fill"></div>
+      <div id="resizeHandle" class="resize-handle" aria-label="Resize progress bar" role="button" tabindex="0"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
